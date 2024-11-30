@@ -22,13 +22,13 @@ public class CountryService {
 
     public Country getCountry(String code) {
         Optional<Country> option = repository.findById(code);
-
         Country country = option.orElse(null);
         return country;
     }
 
     @Transactional
     public void updateCountry(String code, String name, int population) {
+
         Country country = new Country(code, name, population);
         repository.save(country);
     }
